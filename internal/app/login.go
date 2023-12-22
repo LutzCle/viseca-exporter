@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/anothertobi/viseca-exporter/pkg/viseca"
+	"github.com/lutzcle/viseca-exporter/pkg/viseca"
 	"github.com/urfave/cli/v2"
 )
 

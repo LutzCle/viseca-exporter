@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/anothertobi/viseca-exporter/internal/csv"
-	"github.com/anothertobi/viseca-exporter/pkg/viseca"
+	"github.com/lutzcle/viseca-exporter/internal/csv"
+	"github.com/lutzcle/viseca-exporter/pkg/viseca"
 	"github.com/urfave/cli/v2"
 )
 

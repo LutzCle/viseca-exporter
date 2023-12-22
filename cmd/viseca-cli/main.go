@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/anothertobi/viseca-exporter/internal/app"
+	"github.com/lutzcle/viseca-exporter/internal/app"
 	"github.com/urfave/cli/v2"
 )
 
