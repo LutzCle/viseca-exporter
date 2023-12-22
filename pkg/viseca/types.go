@@ -12,6 +12,7 @@ type Transaction struct {
 	CardName         string           `json:"cardName"`
 	Date             string           `json:"date"`
 	ShowTimestamp    bool             `json:"showTimestamp"`
+	ValutaDate       string           `json:"valutaDate"`
 	Amount           float64          `json:"amount"`
 	Currency         string           `json:"currency"`
 	OriginalAmount   float64          `json:"originalAmount"`
