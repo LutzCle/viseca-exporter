@@ -14,11 +14,12 @@ var inputTransaction = viseca.Transaction{
 	MaskedCardNumber: "XXXXXXXXXXXX0000",
 	CardName:         "Mastercard",
 	Date:             "2021-10-20T17:05:44",
+	ValutaDate:       "2021-10-19T14:11:05",
 	ShowTimestamp:    true,
 	Amount:           50.55,
 	Currency:         "CHF",
-	OriginalAmount:   50.55,
-	OriginalCurrency: "CHF",
+	OriginalAmount:   51.55,
+	OriginalCurrency: "USD",
 	MerchantName:     "Aldi Suisse 00",
 	PrettyName:       "ALDI",
 	MerchantPlace:    "",
@@ -42,7 +43,7 @@ var inputTransaction = viseca.Transaction{
 }
 
 func TestTransactionString(t *testing.T) {
-	expected := `"AUTH8c919db2-1c23-43f1-8862-61c31336d9b6","2021-10-20T17:05:44","ALDI","50.55","cv_groceries","Lebensmittel"`
+	expected := `"AUTH8c919db2-1c23-43f1-8862-61c31336d9b6","0000000AAAAA0000","XXXXXXXXXXXX0000","2021-10-20T17:05:44","2021-10-19T14:11:05","ALDI","50.55","CHF","51.55","USD","false","authorized","Aldi Suisse 00","cv_groceries","Lebensmittel"`
 
 	assert.Equal(t, expected, csv.TransactionString(inputTransaction))
 }
@@ -50,9 +51,9 @@ func TestTransactionString(t *testing.T) {
 func TestTransactionsString(t *testing.T) {
 	inputTransactions := []viseca.Transaction{inputTransaction}
 	expected :=
-		`"TransactionID","Date","Merchant","Amount","PFMCategoryID","PFMCategoryName"` +
+		`"TransactionID","CardID","MaskedCardNumber","Date","ValutaDate","Merchant","Amount","Currency","OriginalAmount","OriginalCurrency","IsOnline","StateType","Details","PFMCategoryID","PFMCategoryName"` +
 			"\n" +
-			`"AUTH8c919db2-1c23-43f1-8862-61c31336d9b6","2021-10-20T17:05:44","ALDI","50.55","cv_groceries","Lebensmittel"` +
+			`"AUTH8c919db2-1c23-43f1-8862-61c31336d9b6","0000000AAAAA0000","XXXXXXXXXXXX0000","2021-10-20T17:05:44","2021-10-19T14:11:05","ALDI","50.55","CHF","51.55","USD","false","authorized","Aldi Suisse 00","cv_groceries","Lebensmittel"` +
 			"\n"
 
 	assert.Equal(t, expected, csv.TransactionsString(inputTransactions))
